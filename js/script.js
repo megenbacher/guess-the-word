@@ -28,9 +28,13 @@ button.addEventListener("click", function (e) {
     e.preventDefault();
 const inputValue = text.value;
 //console.log(inputValue);
-text.value = "";
 message.innerText = "";
-playerInput(inputValue);
+const goodGuess = playerInput(inputValue);
+
+if (goodGuess) {
+    makeGuess(inputValue);
+}
+text.value="";
 });
 
 
@@ -53,8 +57,14 @@ const playerInput = function (input) {
 
 //Function to Capture Input//
 
-const makeGuess = function (Letter) {
+const makeGuess = function (letter) {
+letter = letter.toUpperCase();
 
-};
-
-
+    if (guessedLetters.includes(letter)) {
+       
+        message.innerText = "You have already guessed that letter.Please try another.";
+    } else {
+        guessedLetters.push(letter);
+        console.log(guessedLetters);
+    }
+}
