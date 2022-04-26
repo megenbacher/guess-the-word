@@ -93,7 +93,7 @@ const update = function () {
     guessed.innerHTML = "";
     for (const letter of guessedLetters) {
         const li = document.createElement("li");
-        li.innertext = letter;
+        li.innerText = letter;
         guessed.append(li);
     }
 
